@@ -8,9 +8,15 @@ Projeto de conclusão desenvolvido para o Programa de Desenvolvedor Trainee 2026
 - SQLite (Banco de dados integrado)
 - Bootstrap 5 (Interface responsiva)
 
+## Funcionalidades Obrigatórias Implementadas
+- [x] **Cadastro de Pacientes:** Nome, CPF, Data de Nascimento, Telefone e E-mail.
+- [x] **Gestão Completa (CRUD):** Listagem, edição e exclusão de pacientes.
+- [x] **Registo de Atendimentos:** Prontuários vinculados diretamente ao histórico de cada paciente.
+- [x] **Histórico Clínico:** Visualização cronológica dos atendimentos por paciente.
+
 ##  Como Executar o Projeto
 
 1. **Clone o repositório:**
    ```bash
-   git clone [https://github.com/seu-usuario/med_manager.git](https://github.com/seu-usuario/med_manager.git)
-   cd med_manager
+   git clone https://github.com/seu-usuario/Projeto-CareFlow.git
+   cd Projeto-CareFlow
