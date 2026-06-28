@@ -1,0 +1,49 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h2 class="fw-bold m-0">Pacientes Cadastrados</h2>
+        <p class="text-muted m-0 small">Gerenciamento geral de registros</p>
+    </div>
+    <a href="{% url 'cadastrar_paciente' %}" class="btn btn-med px-4 fw-bold">Novo Paciente</a>
+</div>
+
+<div class="card card-custom overflow-hidden">
+    <div class="table-responsive">
+        <table class="table table-hover mb-0 align-middle">
+            <thead class="table-light text-secondary small text-uppercase">
+                <tr>
+                    <th class="ps-4">Nome Completo</th>
+                    <th>CPF</th>
+                    <th>Telefone</th>
+                    <th>E-mail</th>
+                    <th class="text-center pe-4">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for paciente in pacientes %}
+                <tr>
+                    <td class="ps-4">
+                        <span class="fw-bold text-dark">{{ paciente.nome }}</span>
+                    </td>
+                    <td class="text-secondary font-monospace">{{ paciente.cpf }}</td>
+                    <td>{{ paciente.telefone }}</td>
+                    <td class="text-muted">{{ paciente.email }}</td>
+                    <td class="text-center pe-4">
+                        <a href="{% url 'historico_atendimentos' paciente.id %}" class="btn btn-sm btn-info text-white fw-bold px-3 me-1">Prontuário</a>
+                        <a href="{% url 'editar_paciente' paciente.id %}" class="btn btn-sm btn-light border fw-bold px-3 me-1">Editar</a>
+                        <a href="{% url 'excluir_paciente' paciente.id %}" class="btn btn-sm btn-outline-danger px-2">Excluir</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5" class="text-center text-muted py-5">
+                        <p class="m-0 font-monospace">Nenhum paciente localizado na base de dados.</p>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
